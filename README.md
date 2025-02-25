@@ -23,6 +23,7 @@ To view the download files, go to the same console as above and look for the faa
 
 # Dependencies
 * Minio
+
 To install Minio, run the following command in your terminal:
 <pre><code>pip3 install minio</code></pre>
 
