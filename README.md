@@ -1,7 +1,7 @@
 # Translator
 This project provides tools to translate [WfFormat](https://wfcommons.org/) workflows into synthetic [FaaSr](https://faasr.io/) workflows containing two JSON files: 
 * a FaaSr JSON, following the FaaSr schema
-* a FaaSr file JSON, which specifies file names and sizes
+* a workflow file JSON, which specifies file names and sizes
 
 ## convert.py
 This program converts a WfFormat JSON to a FaaSr workflow and downloads the truncated files to S3
