@@ -4,7 +4,7 @@
 ## convert.py
 This program converts a WfFormat JSON to a FaaSr workflow and downloads the truncated files to S3
 
-<pre><code>python convert.py [WfFormat JSON] [FaaSr workflow name]</code></pre>
+<pre><code>python3 convert.py [WfFormat JSON] [FaaSr workflow name]</code></pre>
 
 To explore the console of the S3 bucket that this program downloads the files to, go to https://play.min.io:9443, and log in using these credentials:
 <pre><code>Username: Q3AM3UQ867SPQQA43P2F
@@ -15,7 +15,7 @@ The files will be downloaded to a bucket called 'faasr'
 ## download_faasr_files.py
 This program downloads the files specified in a FaaSr file JSON to S3
 
-<pre><code>python download_faasr_files.py [FaaSr file JSON]</code></pre>
+<pre><code>python3 download_faasr_files.py [FaaSr file JSON]</code></pre>
 
 To view the download files, go to the same console as above and look for the faasr bucket
 
