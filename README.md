@@ -32,7 +32,7 @@ In order to run the workflow, you must download it's files to S3 with download_f
 * Support for multiple compute servers and data stores
 <img width="828" alt="Screenshot 2025-02-24 at 6 13 16 PM" src="https://github.com/user-attachments/assets/3a758176-2479-4456-a547-d73632c9dcf3" />
 
-#Future Additions
+# Future Additions
 * Compile synthetic FaaSr workflows into WRENCH simulations
 
 
