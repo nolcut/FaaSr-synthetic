@@ -1,5 +1,5 @@
 # Translator
-WfFormat workflows can be translated into synthetic FaaSr workflows and then dumped to workflow folders containing two JSON files: a FaaSr JSON (that follows the FaaSr schema), and a FaaSr file JSON (that specifes files names and sizes)
+[WfFormat](https://wfcommons.org/) workflows can be translated into synthetic [FaaSr](https://faasr.io/) workflows containing two JSON files: a FaaSr JSON (that follows the FaaSr schema) and a FaaSr file JSON (that specifes file names and sizes for I/O replication)
 
 ## convert.py
 This program converts a WfFormat JSON to a FaaSr workflow and downloads the truncated files to S3
