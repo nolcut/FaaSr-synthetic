@@ -1,5 +1,7 @@
 # Translator
-[WfFormat](https://wfcommons.org/) workflows can be translated into synthetic [FaaSr](https://faasr.io/) workflows containing two JSON files: a FaaSr JSON (that follows the FaaSr schema) and a FaaSr file JSON (that specifes file names and sizes for I/O replication)
+This project provides tools to translate [WfFormat](https://wfcommons.org/) workflows into synthetic [FaaSr](https://faasr.io/) workflows containing two JSON files: 
+* a FaaSr JSON, following the FaaSr schema
+* a FaaSr file JSON, which specifies file names and sizes
 
 ## convert.py
 This program converts a WfFormat JSON to a FaaSr workflow and downloads the truncated files to S3
@@ -19,11 +21,15 @@ This program downloads the files specified in a FaaSr file JSON to S3
 
 To view the download files, go to the same console as above and look for the faasr bucket
 
+# Dependencies
+* Minio
+To install Minio, run the following command in your terminal:
+<pre><code>pip3 install minio</code></pre>
 
 # test
 small_workflow is a FaaSr workflow that was translated from the WfInstance, 'blast-chameleon-small-004.json'
 
-In order to run the workflow, you must download it's files to S3 with download_faasr_files.py
+note: In order to run the workflow, you must download it's files to S3 with download_faasr_files.py
 
 # To-do
 * Make GUI to upload WfFormat files, take S3/FaaS credentials, and download FaaSr workflow's files to S3
