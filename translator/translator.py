@@ -2,12 +2,8 @@ from workflow import *
 
 def translate_wf_to_faasr_gh(
         workflow: WfFormatWorkflow, 
-        compute_server: str, 
-        data_store: str, 
-        username="YOUR_GITHUB_USERNAME", 
-        action_repo_name="synthetic-faas-example", 
-        faas_type="GitHubActions", 
-        branch="main", 
+        compute_server: ComputeServer,
+        data_store="My_Minio_Bucket",
         data_endpoint="https://play.min.io", 
         bucket="faasr", 
         region="us-east-1", 
@@ -19,12 +15,8 @@ def translate_wf_to_faasr_gh(
     Copies data from WfFormat workflow object and initializes a FaaSr workflow object that uses GitHub actions
 
     Args:
-        compute_server(str): Name of compute server used for FaaS calls
-        data_stores(str): Name of S3 used for data stores
-        username(str): FaaS provider username
-        action_repo_name(str): Name of repo to create when workflow is registerd"
-        faas_type(str): FaaS provider
-        branch(str):
+        compute_server(ComputeServer): FaaS compute server
+        data_store(str): Name of data store
         data_endpoint(str): S3 endpoint
         bucket(str): Name of S3 bucket
         region(str): Region for S3 data_store
@@ -48,10 +40,6 @@ def translate_wf_to_faasr_gh(
     return SyntheticFaaSrWorkflow(
                                   compute_server=compute_server, 
                                   data_store=data_store, 
-                                  username=username, 
-                                  action_repo_name=action_repo_name, 
-                                  faas_type=faas_type, 
-                                  branch=branch, 
                                   data_endpoint=data_endpoint, 
                                   bucket=bucket, 
                                   region=region, 

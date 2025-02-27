@@ -27,11 +27,27 @@ def main():
     #create WfWorkflow
     wf_workflow = wfformat_to_workflow_obj(data)
 
+    #create compute server
+    print("""What FaaS provider do you want to use for this workflow? ["GH", "OW", or "Lambda"]""")
+    faas_type = input().lower()
+    while faas_type not in ("gh", "ow", "lambda"):
+        print("Please input a valid FaaS provider")
+        faas_type = input().lower()
+    match faas_type:
+        case "gh":
+            print('GH')
+            compute_server = GH_ComputeServer(name="My_GitHub_Account", faastype="GitHubActions", username="YOUR_GITHUB_USERNAME", action_repo_name="faasr-synthetic-example", branch="main")
+        case 'ow':
+            compute_server = OW_ComputeServer(name="My_OW_Account", faastype="OpenWhisk", namespace="YOUR_OW_USERNAME", endpoint="YOUR_OW_ENDPOINT")
+        case "lambda":
+            compute_server = Lambda_ComputeServer(name="My_Lambda_Account", faastype="Lambda", region="us-east-1")
+    
     #Display workflow data
     print(wf_workflow)
 
+
     #Create SyntheticFaaSrWorkflow from WfWorkflow
-    faasr_workflow = translate_wf_to_faasr_gh(workflow=wf_workflow, compute_server="My_GitHub_Account", data_store="My_Minio_Bucket")
+    faasr_workflow = translate_wf_to_faasr_gh(workflow=wf_workflow, compute_server=compute_server)
 
     #Display FaaSr workflow
     print(faasr_workflow)

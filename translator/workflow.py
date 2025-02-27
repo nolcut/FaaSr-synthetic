@@ -1,4 +1,58 @@
 from typing import Dict
+import textwrap
+
+class ComputeServer:
+    """Holds data about compute server in the FaaSr workflow
+    
+    args:
+        name(str): name of compute server
+        faastype(str): FaaS provider
+    """
+    def __init__(self, faastype: str, name: str):
+        self.name = name
+        self.faastype = faastype
+class OW_ComputeServer(ComputeServer):
+    """Holds data about OpenWhisk compute server in the FaaSr workflow
+    
+    args:
+        name(str): name of compute server
+        faastype(str): FaaS provider
+        namespace(str): OpenWhisk username
+        endpoint(str): OpenWhisk endpoint
+    """
+    def __init__(self, name: str, faastype:str, namespace: str, endpoint: str):
+        super().__init__(name=name, faastype=faastype)
+        self.namespace = namespace
+        self.endpoint = endpoint
+
+class Lambda_ComputeServer(ComputeServer):
+    """Holds data about AWS Lambda compute server in the FaaSr workflow
+    
+    args:
+        name(str): name of compute server
+        faastype(str): FaaS provider
+        region(str): AWS Lambda region
+    """
+    def __init__(self, name: str, faastype: str, region: str):
+        super().__init__(name=name, faastype=faastype)
+        self.region = region
+
+class GH_ComputeServer(ComputeServer):
+    """Holds data about OpenWhisk compute server in the FaaSr workflow
+    
+    args:
+        name(str): name of compute server
+        faastype(str): FaaS provider
+        username(str): GitHub username
+        action_repo_name(str): GitHub repo for GH Actions
+        Branch(str): Branch of action repo
+    """
+    def __init__(self, name: str, faastype: str, username: str, action_repo_name: str, branch: str):
+        super().__init__(name=name, faastype=faastype)
+        self.username = username
+        self.action_repo_name = action_repo_name
+        self.branch = branch
+    
 
 class SyntheticFaaSrAction:
     """"
@@ -108,10 +162,6 @@ class SyntheticFaaSrWorkflow:
     Args:
         compute_server(str): Name of compute server used for FaaS calls
         data_stores(str): Name of S3 used for data stores
-        username(str): FaaS provider username
-        action_repo_name(str): Name of repo to create when workflow is registerd"
-        faas_type(str): FaaS provider
-        branch(str):
         data_endpoint(str): S3 endpoint
         bucket(str): Name of S3 bucket
         region(str): Region for S3 data_store
@@ -123,12 +173,8 @@ class SyntheticFaaSrWorkflow:
     """
     def __init__(
         self, 
-        compute_server="My_Github_Account", 
+        compute_server: ComputeServer, 
         data_store="My_Minio_Bucket", 
-        username="YOUR_GITHUB_USERNAME", 
-        action_repo_name="synthetic-faas-example", 
-        faas_type="GitHubActions", 
-        branch="main", 
         data_endpoint="https://play.min.io", 
         bucket="faasr", 
         region="us-east-1", 
@@ -142,10 +188,6 @@ class SyntheticFaaSrWorkflow:
         self.files = files if files is not None else []
         self.compute_server = compute_server
         self.data_store = data_store
-        self.username = username
-        self.action_repo_name = action_repo_name
-        self.faas_type = faas_type
-        self.branch = branch
         self.data_endpoint = data_endpoint
         self.bucket = bucket
         self.region = region
@@ -172,19 +214,30 @@ class SyntheticFaaSrWorkflow:
             functions_str += f"{function.name} ({function.execution_time:.3f}s) | "
 
 
-        return (
-            "--------------FAASR WORKFLOW--------------\n"
-            f"Compute Server: {self.compute_server}\n"
-            f"Data Store: {self.data_store}\n"
-            f"Username: {self.username}\n"
-            f"FaaS Type: {self.faas_type}\n"
-            f"Branch: {self.branch}\n"
-            f"Data Endpoint: {self.data_endpoint}\n"
-            f"Bucket: {self.bucket}\n"
-            f"Region: {self.region}\n"
-            f"Writable: {self.writable}\n"
-            f"\nFiles: {files_str}\n"
-            f"\nFunction List: {functions_str}\n"
-            f"\nStart Function: {self.start_function.name} ({self.start_function.execution_time:.3f}s)\n"
-            f"Function Git Repos: {self.function_git_repos}"
-        )
+        output = (f"--------------FAASR WORKFLOW--------------\n"
+        f"Compute Server: {self.compute_server.name}\n"
+        f"FaaS Type: {self.compute_server.faastype}\n")
+
+
+        match self.compute_server.faastype:
+            case "GitHubActions":
+                output += f"Username: {self.compute_server.username}\n"
+                output += f"Action Repo Name: {self.compute_server.action_repo_name}\n"
+                output += f"Branch: {self.compute_server.branch}\n"
+            case "Lambda":
+                output += f"\nRegion: {self.compute_server.region}\n"
+            case "OpenWhisk":
+                output += f
+                output += f"Namespace: {self.compute_server.namespace}\n"
+                output += f"Endpoint: {self.compute_server.endpoint}\n"
+
+        output += (f"Data Store: {self.data_store}\n"
+        f"Data Endpoint: {self.data_endpoint}\n"
+        f"Bucket: {self.bucket}\n"
+        f"Region: {self.region}\n"
+        f"Writable: {self.writable}\n"
+        f"\nFiles: {files_str}\n"
+        f"\nFunction List: {functions_str}\n"
+        f"\nStart Function: {self.start_function.name} ({self.start_function.execution_time:.3f}s)\n"
+        f"Function Git Repos: {self.function_git_repos}")
+        return output

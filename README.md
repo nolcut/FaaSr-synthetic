@@ -28,9 +28,9 @@ To install Minio, run the following command in your terminal:
 <pre><code>pip3 install minio</code></pre>
 
 # test
-small_workflow is a FaaSr workflow that was translated from the WfInstance, 'blast-chameleon-small-004.json'
+small_workflow_gh, small_workflow_ow, and small_workflow_lambda are FaaSr workflows that were translated from the WfInstance, 'blast-chameleon-small-004.json'
 
-note: In order to run the workflow, you must download it's files to S3 with download_faasr_files.py
+note: In order to run any of these examples, you must download their files to S3 with download_faasr_files.py
 
 # To-do
 * Make GUI to upload WfFormat files, take S3/FaaS credentials, and download FaaSr workflow's files to S3

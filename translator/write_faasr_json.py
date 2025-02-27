@@ -3,21 +3,28 @@ from workflow import *
 import json
 import os
 
-def write_faasr_obj_to_json(workflow, output_name):
+def write_faasr_obj_to_json(workflow: SyntheticFaaSrWorkflow, output_name: str):
     """"
     Writes faasr workflow to a FaaSr JSON and FaaSr file JSON
-    :param_workflow: workflow objec
+    :param_workflow: workflow object
     :param_output_name: output workflow name
     """
     start_function_name = workflow.start_function.name
     data_bucket = workflow.data_store
     faasr_data = {'ComputeServers' : {}, 'DataStores' : {}, 'FunctionList' : {}, 'ActionContainers' : {}, 'FunctionGitRepo' : workflow.function_git_repos, 'FunctionInvoke' : start_function_name, 'InvocationID' : '', 'FaaSrLog': 'FaaSrLog', 'LoggingDataStore': data_bucket, 'DefaultDataStore': data_bucket, 'FunctionCRANPackage': {"synthetic_faas_function": []}, 'FunctionGitHubPackage': {"synthetic_faas_function": []}}
 
-    faasr_data['ComputeServers'][workflow.compute_server] = {}
-    faasr_data['ComputeServers'][workflow.compute_server]['FaaSType'] = workflow.faas_type
-    faasr_data['ComputeServers'][workflow.compute_server]['UserName'] = workflow.username
-    faasr_data['ComputeServers'][workflow.compute_server]['ActionRepoName'] = workflow.action_repo_name
-    faasr_data['ComputeServers'][workflow.compute_server]['Branch'] = workflow.branch
+    faasr_data['ComputeServers'][workflow.compute_server.name] = {}
+    faasr_data['ComputeServers'][workflow.compute_server.name]['FaaSType'] = workflow.compute_server.faastype
+    match (workflow.compute_server.faastype):
+        case "GitHubActions":
+            faasr_data['ComputeServers'][workflow.compute_server.name]['UserName'] = workflow.compute_server.username
+            faasr_data['ComputeServers'][workflow.compute_server.name]['ActionRepoName'] = workflow.compute_server.action_repo_name
+            faasr_data['ComputeServers'][workflow.compute_server.name]['Branch'] = workflow.compute_server.branch
+        case "Lambda":
+            faasr_data['ComputeServers'][workflow.compute_server.name]['Region'] = workflow.compute_server.region
+        case "OpenWhisk":
+            faasr_data['ComputeServers'][workflow.compute_server.name]['Namespace'] = workflow.compute_server.namespace
+            faasr_data['ComputeServers'][workflow.compute_server.name]['Endpoint'] = workflow.compute_server.endpoint
 
     faasr_data['DataStores'][workflow.data_store] = {}
     faasr_data['DataStores'][workflow.data_store]['Endpoint'] = workflow.data_endpoint
@@ -26,7 +33,7 @@ def write_faasr_obj_to_json(workflow, output_name):
     faasr_data['DataStores'][workflow.data_store]['Writable'] = workflow.writable
 
     for function in workflow.function_list:
-        faasr_data['FunctionList'][function.name] = {'FunctionName': function.function_name, 'FaaSServer' : workflow.compute_server, 'Arguments' : {}, 'InvokeNext': []}
+        faasr_data['FunctionList'][function.name] = {'FunctionName': function.function_name, 'FaaSServer' : workflow.compute_server.name, 'Arguments' : {}, 'InvokeNext': []}
         faasr_data['FunctionList'][function.name]['Arguments']['execution_time'] = function.execution_time
         faasr_data['FunctionList'][function.name]['Arguments']['folder'] = workflow.files_folder
         faasr_data['FunctionList'][function.name]['Arguments']['input_files'] = function.input_files
@@ -46,9 +53,10 @@ def write_faasr_obj_to_json(workflow, output_name):
     file_outfile = open(f"{output_name}/{output_name}_files.json", "w")
     json.dump(faasr_data_files, file_outfile, indent=4)
     file_outfile.close()
-    
 
-def create_file_of_size(file_path, size_in_bytes):
+
+
+def create_file_of_size(file_path: str, size_in_bytes: int):
     """"
     Creates a file with a specified size
     :param_file_path: file path

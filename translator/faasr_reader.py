@@ -12,8 +12,23 @@ def faasr_json_to_workflow_obj(faasr_json: str, faasr_file_json: str):
     faasr_json = json.load(open(faasr_json, 'r'))
     function_list = []
     compute_server_name = next(iter(faasr_json['ComputeServers']))
+    faas_type = faasr_json['ComputeServers'][compute_server_name]['FaaSType']
+
+    match faas_type:
+        case "GitHubActions":
+            username = faasr_json['ComputeServers'][compute_server_name]['UserName']
+            action_repo_name = faasr_json['ComputeServers'][compute_server_name]['ActionRepoName']
+            branch = faasr_json['ComputeServers'][compute_server_name]['Branch']
+            compute_server = GH_ComputeServer(name=compute_server_name, faastype=faas_type, username=username, action_repo_name=action_repo_name, branch=branch)
+        case "OpenWhisk":
+            namespace = faasr_json['ComputeServers'][compute_server_name]['Namespace']
+            endpoint = faasr_json['ComputeServers'][compute_server_name]['Endpoint']
+            compute_server = OW_ComputeServer(name=compute_server_name, faastype=faas_type, namespace=namespace, endpoint=endpoint)
+        case "Lambda": 
+            region = faasr_json['ComputeServers'][compute_server_name]['Region']
+            compute_server = Lambda_ComputeServer(name=compute_server_name, faastype=faas_type, region=region)
     data_store_name = next(iter(faasr_json['DataStores']))
-    
+
     for name, configuration in faasr_json['FunctionList'].items():
         function = SyntheticFaaSrAction(
                                         name=name, 
@@ -26,12 +41,8 @@ def faasr_json_to_workflow_obj(faasr_json: str, faasr_file_json: str):
         if name == faasr_json['FunctionInvoke']:
             start_function = function
 
-    return SyntheticFaaSrWorkflow(compute_server=compute_server_name, 
+    return SyntheticFaaSrWorkflow(compute_server=compute_server, 
                                   data_store=data_store_name, 
-                                  username=faasr_json['ComputeServers'][compute_server_name]['UserName'], 
-                                  action_repo_name=faasr_json['ComputeServers'][compute_server_name]['ActionRepoName'], 
-                                  faas_type=faasr_json['ComputeServers'][compute_server_name]['FaaSType'], 
-                                  branch=faasr_json['ComputeServers'][compute_server_name]['Branch'], 
                                   data_endpoint=faasr_json['DataStores'][data_store_name]['Endpoint'], 
                                   bucket=faasr_json['DataStores'][data_store_name]['Bucket'], 
                                   region=faasr_json['DataStores'][data_store_name]['Region'], 

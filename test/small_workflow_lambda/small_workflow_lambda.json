@@ -1,0 +1,957 @@
+{
+    "ComputeServers": {
+        "My_Lambda_Account": {
+            "FaaSType": "Lambda",
+            "Region": "us-east-1"
+        }
+    },
+    "DataStores": {
+        "My_Minio_Bucket": {
+            "Endpoint": "https://play.min.io",
+            "Bucket": "faasr",
+            "Region": "us-east-1",
+            "Writable": "TRUE"
+        }
+    },
+    "FunctionList": {
+        "split_fasta_ID000001": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 0.055624,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "small.fasta",
+                    "split_fasta"
+                ],
+                "output_size_in_bytes": 240
+            },
+            "InvokeNext": [
+                "blastall_ID000002",
+                "blastall_ID000003",
+                "blastall_ID000004",
+                "blastall_ID000005",
+                "blastall_ID000006",
+                "blastall_ID000007",
+                "blastall_ID000008",
+                "blastall_ID000009",
+                "blastall_ID000010",
+                "blastall_ID000011",
+                "blastall_ID000012",
+                "blastall_ID000013",
+                "blastall_ID000014",
+                "blastall_ID000015",
+                "blastall_ID000016",
+                "blastall_ID000017",
+                "blastall_ID000018",
+                "blastall_ID000019",
+                "blastall_ID000020",
+                "blastall_ID000021",
+                "blastall_ID000022",
+                "blastall_ID000023",
+                "blastall_ID000024",
+                "blastall_ID000025",
+                "blastall_ID000026",
+                "blastall_ID000027",
+                "blastall_ID000028",
+                "blastall_ID000029",
+                "blastall_ID000030",
+                "blastall_ID000031",
+                "blastall_ID000032",
+                "blastall_ID000033",
+                "blastall_ID000034",
+                "blastall_ID000035",
+                "blastall_ID000036",
+                "blastall_ID000037",
+                "blastall_ID000038",
+                "blastall_ID000039",
+                "blastall_ID000040",
+                "blastall_ID000041"
+            ]
+        },
+        "blastall_ID000002": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.686055,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.0",
+                    "nt"
+                ],
+                "output_size_in_bytes": 10
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000003": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.350344,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.1",
+                    "nt"
+                ],
+                "output_size_in_bytes": 12
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000004": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.870847,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.2",
+                    "nt"
+                ],
+                "output_size_in_bytes": 10
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000005": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.512769,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.3",
+                    "nt"
+                ],
+                "output_size_in_bytes": 20
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000006": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 10.159649,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.4",
+                    "nt"
+                ],
+                "output_size_in_bytes": 100
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000007": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.426604,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.5",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000008": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.220697,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.6",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000009": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.374924,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.7",
+                    "nt"
+                ],
+                "output_size_in_bytes": 25
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000010": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.601383,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.8",
+                    "nt"
+                ],
+                "output_size_in_bytes": 40
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000011": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.840562,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.9",
+                    "nt"
+                ],
+                "output_size_in_bytes": 9
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000012": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.542971,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.10",
+                    "nt"
+                ],
+                "output_size_in_bytes": 12
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000013": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.874427,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.11",
+                    "nt"
+                ],
+                "output_size_in_bytes": 14
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000014": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 11.046388,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.12",
+                    "nt"
+                ],
+                "output_size_in_bytes": 98
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000015": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.26506,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.13",
+                    "nt"
+                ],
+                "output_size_in_bytes": 16
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000016": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.818678,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.14",
+                    "nt"
+                ],
+                "output_size_in_bytes": 7
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000017": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.996971,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.15",
+                    "nt"
+                ],
+                "output_size_in_bytes": 8
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000018": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.512414,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.16",
+                    "nt"
+                ],
+                "output_size_in_bytes": 22
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000019": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.509107,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.17",
+                    "nt"
+                ],
+                "output_size_in_bytes": 16
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000020": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.915408,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.18",
+                    "nt"
+                ],
+                "output_size_in_bytes": 26
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000021": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.146585,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.19",
+                    "nt"
+                ],
+                "output_size_in_bytes": 13
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000022": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.112717,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.20",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000023": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.321234,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.21",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000024": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.246956,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.22",
+                    "nt"
+                ],
+                "output_size_in_bytes": 12
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000025": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.341484,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.23",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000026": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.087212,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.24",
+                    "nt"
+                ],
+                "output_size_in_bytes": 10
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000027": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.943748,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.25",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000028": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.91932,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.26",
+                    "nt"
+                ],
+                "output_size_in_bytes": 10
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000029": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.362694,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.27",
+                    "nt"
+                ],
+                "output_size_in_bytes": 19
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000030": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.959346,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.28",
+                    "nt"
+                ],
+                "output_size_in_bytes": 7
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000031": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.393279,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.29",
+                    "nt"
+                ],
+                "output_size_in_bytes": 15
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000032": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.716185,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.30",
+                    "nt"
+                ],
+                "output_size_in_bytes": 25
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000033": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.97718,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.31",
+                    "nt"
+                ],
+                "output_size_in_bytes": 13
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000034": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.398958,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.32",
+                    "nt"
+                ],
+                "output_size_in_bytes": 11
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000035": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.434477,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.33",
+                    "nt"
+                ],
+                "output_size_in_bytes": 13
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000036": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.626213,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.34",
+                    "nt"
+                ],
+                "output_size_in_bytes": 17
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000037": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.95474,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.35",
+                    "nt"
+                ],
+                "output_size_in_bytes": 24
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000038": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.5943,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.36",
+                    "nt"
+                ],
+                "output_size_in_bytes": 14
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000039": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.529869,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.37",
+                    "nt"
+                ],
+                "output_size_in_bytes": 23
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000040": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 8.572024,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.38",
+                    "nt"
+                ],
+                "output_size_in_bytes": 10
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "blastall_ID000041": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 9.529844,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "blastall",
+                    "small.fasta.39",
+                    "nt"
+                ],
+                "output_size_in_bytes": 24
+            },
+            "InvokeNext": [
+                "cat_blast_ID000042",
+                "cat_ID000043"
+            ]
+        },
+        "cat_blast_ID000042": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 0.042921,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "cat_blast",
+                    "small.fasta.0.out",
+                    "small.fasta.1.out",
+                    "small.fasta.2.out",
+                    "small.fasta.3.out",
+                    "small.fasta.4.out",
+                    "small.fasta.5.out",
+                    "small.fasta.6.out",
+                    "small.fasta.7.out",
+                    "small.fasta.8.out",
+                    "small.fasta.9.out",
+                    "small.fasta.10.out",
+                    "small.fasta.11.out",
+                    "small.fasta.12.out",
+                    "small.fasta.13.out",
+                    "small.fasta.14.out",
+                    "small.fasta.15.out",
+                    "small.fasta.16.out",
+                    "small.fasta.17.out",
+                    "small.fasta.18.out",
+                    "small.fasta.19.out",
+                    "small.fasta.20.out",
+                    "small.fasta.21.out",
+                    "small.fasta.22.out",
+                    "small.fasta.23.out",
+                    "small.fasta.24.out",
+                    "small.fasta.25.out",
+                    "small.fasta.26.out",
+                    "small.fasta.27.out",
+                    "small.fasta.28.out",
+                    "small.fasta.29.out",
+                    "small.fasta.30.out",
+                    "small.fasta.31.out",
+                    "small.fasta.32.out",
+                    "small.fasta.33.out",
+                    "small.fasta.34.out",
+                    "small.fasta.35.out",
+                    "small.fasta.36.out",
+                    "small.fasta.37.out",
+                    "small.fasta.38.out",
+                    "small.fasta.39.out"
+                ],
+                "output_size_in_bytes": 670
+            },
+            "InvokeNext": []
+        },
+        "cat_ID000043": {
+            "FunctionName": "synthetic_faas_function",
+            "FaaSServer": "My_Lambda_Account",
+            "Arguments": {
+                "execution_time": 0.009717,
+                "folder": "synthetic_files",
+                "input_files": [
+                    "small.fasta.0.err",
+                    "small.fasta.1.err",
+                    "small.fasta.2.err",
+                    "small.fasta.3.err",
+                    "small.fasta.4.err",
+                    "small.fasta.5.err",
+                    "small.fasta.6.err",
+                    "small.fasta.7.err",
+                    "small.fasta.8.err",
+                    "small.fasta.9.err",
+                    "small.fasta.10.err",
+                    "small.fasta.11.err",
+                    "small.fasta.12.err",
+                    "small.fasta.13.err",
+                    "small.fasta.14.err",
+                    "small.fasta.15.err",
+                    "small.fasta.16.err",
+                    "small.fasta.17.err",
+                    "small.fasta.18.err",
+                    "small.fasta.19.err",
+                    "small.fasta.20.err",
+                    "small.fasta.21.err",
+                    "small.fasta.22.err",
+                    "small.fasta.23.err",
+                    "small.fasta.24.err",
+                    "small.fasta.25.err",
+                    "small.fasta.26.err",
+                    "small.fasta.27.err",
+                    "small.fasta.28.err",
+                    "small.fasta.29.err",
+                    "small.fasta.30.err",
+                    "small.fasta.31.err",
+                    "small.fasta.32.err",
+                    "small.fasta.33.err",
+                    "small.fasta.34.err",
+                    "small.fasta.35.err",
+                    "small.fasta.36.err",
+                    "small.fasta.37.err",
+                    "small.fasta.38.err",
+                    "small.fasta.39.err"
+                ],
+                "output_size_in_bytes": 0
+            },
+            "InvokeNext": []
+        }
+    },
+    "ActionContainers": {
+        "split_fasta_ID000001": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000002": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000003": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000004": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000005": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000006": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000007": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000008": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000009": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000010": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000011": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000012": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000013": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000014": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000015": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000016": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000017": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000018": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000019": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000020": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000021": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000022": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000023": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000024": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000025": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000026": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000027": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000028": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000029": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000030": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000031": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000032": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000033": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000034": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000035": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000036": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000037": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000038": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000039": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000040": "ghcr.io/faasr/github-actions-tidyverse",
+        "blastall_ID000041": "ghcr.io/faasr/github-actions-tidyverse",
+        "cat_blast_ID000042": "ghcr.io/faasr/github-actions-tidyverse",
+        "cat_ID000043": "ghcr.io/faasr/github-actions-tidyverse"
+    },
+    "FunctionGitRepo": {
+        "synthetic_faas_function": "nolcut/FaaSr-synthetic"
+    },
+    "FunctionInvoke": "split_fasta_ID000001",
+    "InvocationID": "",
+    "FaaSrLog": "FaaSrLog",
+    "LoggingDataStore": "My_Minio_Bucket",
+    "DefaultDataStore": "My_Minio_Bucket",
+    "FunctionCRANPackage": {
+        "synthetic_faas_function": []
+    },
+    "FunctionGitHubPackage": {
+        "synthetic_faas_function": []
+    }
+}
