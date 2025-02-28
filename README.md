@@ -33,10 +33,10 @@ small_workflow_gh, small_workflow_ow, and small_workflow_lambda are FaaSr workfl
 note: In order to run any of these examples, you must download their files to S3 with download_faasr_files.py
 
 # To-do
-* Make GUI to upload WfFormat files, take S3/FaaS credentials, and download FaaSr workflow's files to S3
-* Support for AWS and OW
-* Create a tool for assigning compute servers to actions
-* Support for multiple compute servers and data stores
+- Make GUI to upload WfFormat files, take S3/FaaS credentials, and download FaaSr workflow's files to S3
+- [x] Support for AWS and OW
+- Create a tool for assigning compute servers to actions
+- Support for multiple compute servers and data stores
 <img width="828" alt="Screenshot 2025-02-24 at 6 13 16 PM" src="https://github.com/user-attachments/assets/3a758176-2479-4456-a547-d73632c9dcf3" />
 
 # Future Additions
