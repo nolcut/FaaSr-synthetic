@@ -2,7 +2,7 @@ import argparse
 from wfformat_reader import *
 from workflow import *
 from translator import *
-from write_faasr_json import *
+from writer import *
 
 
 """
@@ -25,7 +25,6 @@ def main():
     #download files to S3
     download_files_to_minio_from_json(args.faasr_files, bucket_name='faasr', endpoint='https://play.min.io', access_key="Q3AM3UQ867SPQQA43P2F", secret_key="zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG", folder="synthetic_files")
 
-    print("Downloaded files to S3")
 
 
 if __name__ == "__main__":

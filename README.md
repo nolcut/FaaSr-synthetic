@@ -8,7 +8,7 @@ Converts a WfFormat JSON to a FaaSr workflow and downloads the truncated files t
 
 <pre><code>python3 convert.py [WfFormat JSON] [FaaSr workflow name]</code></pre>
 
-To explore the console of the S3 bucket that this program downloads the files to, go to https://play.min.io:9443, and log in using these credentials:
+To explore the console of the default S3 bucket that this program downloads the files to, go to https://play.min.io:9443, and log in using these credentials:
 <pre><code>Username: Q3AM3UQ867SPQQA43P2F
 Password: zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG</code></pre>
 

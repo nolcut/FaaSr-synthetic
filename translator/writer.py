@@ -80,9 +80,6 @@ def download_files_to_minio_from_obj(workflow: SyntheticFaaSrWorkflow, access_ke
     found = client.bucket_exists(workflow.bucket)
     if not found:
         client.make_bucket(workflow.bucket)
-        print("Created bucket", workflow.bucket)
-    else:
-        print("Bucket", workflow.bucket, "already exists")
 
     if not os.path.exists("temp"):
         os.mkdir("temp")
@@ -97,6 +94,7 @@ def download_files_to_minio_from_obj(workflow: SyntheticFaaSrWorkflow, access_ke
         os.remove("temp/" + file)
 
     os.rmdir("temp")
+    print("Files downloaded to S3")
 
 def download_files_to_minio_from_json(faasr_file_path: str, bucket_name: str, endpoint: str, access_key: str, secret_key: str, folder: str):
     """"
@@ -114,9 +112,6 @@ def download_files_to_minio_from_json(faasr_file_path: str, bucket_name: str, en
     found = client.bucket_exists(bucket_name)
     if not found:
         client.make_bucket(bucket_name)
-        print("Created bucket", bucket_name)
-    else:
-        print("Bucket", bucket_name, "already exists")
 
     if not os.path.exists("temp"):
         os.mkdir("temp")
@@ -133,7 +128,56 @@ def download_files_to_minio_from_json(faasr_file_path: str, bucket_name: str, en
         client.fput_object(bucket_name, destination, "temp/" + file)
         os.remove("temp/" + file)
     os.rmdir("temp")
+    print("Files downloaded to S3")
 
+def create_faasr_env_prompt(workflow: SyntheticFaaSrWorkflow, dir: str):
+    """
+    Creates a faasr_env from user input
+    :param_workflow: FaaSr workflow object
+    :param_dir: Directory that faasr_env will be written to
+    """
+    faasr_env = open(f"{dir}/faasr_env", "w")
+    match workflow.compute_server.faastype:
+        case "GitHubActions":
+            print("Enter your github account token:")
+            token = input()
+            faasr_env.write(f'"My_GitHub_Account_TOKEN"="{token}"\n')
+        case "OpenWhisk":
+            print("Enter your OpenWhisk ID:")
+            ow_id = input()
+            print("Enter your OpenWhisk secret key:")
+            ow_key = input()
+            faasr_env.write(f'"My_OW_Account_API_KEY"="{ow_id}:{ow_key}"\n')
+        case "Lambda":
+            print("Enter your AWS Lambda acess key:")
+            lambda_access_key = input()
+            print("Enter your AWS Lambda secret key:")
+            lambda_secret_key = input()
+            faasr_env.write(f'"My_Lambda_Account_ACCESS_KEY"="{lambda_access_key}"\n')
+            faasr_env.write(f'"My_Lambda_Account_SECRET_KEY"="{lambda_secret_key}"\n')
+    print("Enter your MinIO access key:")
+    minio_access_key = input()
+    print("Enter your MinIO secret key:")
+    minio_secret_key = input()
+    faasr_env.write(f'"My_Minio_Bucket_ACCESS_KEY"="{minio_access_key}"\n')
+    faasr_env.write(f'"My_Minio_Bucket_SECRET_KEY"="{minio_secret_key}"\n')
+    print("faasr_env created")
 
-
-
+def create_faasr_env_default(workflow: SyntheticFaaSrWorkflow, dir: str):
+    """
+    Creates a faasr_env from user input
+    :param_workflow: FaaSr workflow object
+    :param_dir: Directory that faasr_env will be written to
+    """
+    faasr_env = open(f"{dir}/faasr_env", "w")
+    match workflow.compute_server.faastype:
+        case "GitHubActions":
+            faasr_env.write(f'"My_GitHub_Account_TOKEN"="REPLACE_WITH_YOUR_GITHUB_TOKEN"\n')
+        case "OpenWhisk":
+            faasr_env.write(f'"My_OW_Account_API_KEY"="REPLACE_WITH_YOUR_OPENWHISK_ID:SECRET_KEY"\n')
+        case "Lambda":
+            faasr_env.write(f'"My_Lambda_Account_ACCESS_KEY"="REPLACE_WITH_YOUR_AWS_LAMBDA_ACCESS_KEY"\n')
+            faasr_env.write(f'"My_Lambda_Account_SECRET_KEY"="REPLACE_WITH_YOUR_AWS_LAMBDA_SECRET_KEY"\n')
+    faasr_env.write(f'"My_Minio_Bucket_ACCESS_KEY"="Q3AM3UQ867SPQQA43P2F"\n')
+    faasr_env.write(f'"My_Minio_Bucket_SECRET_KEY"="zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG"\n')
+    print("faasr_env created")
