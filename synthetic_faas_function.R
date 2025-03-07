@@ -4,7 +4,7 @@ synthetic_faas_function <- function(folder, execution_time, input_files, output_
     for(file in input_files) {
         tryCatch({
             faasr_log(paste0("Downloading file: ", file))
-        faasr_get_file(remote_folder=folder, remote_file=file, local_file=tempfile(pattern=file))
+        faasr_get_file(remote_folder=folder, remote_file=file, local_file=tempfile(pattern=file, fileext='.txt'))
         }, error = function(e) {
             faasr_log(paste0("ERROR: Failed to download: ", file))
             stop(e)
