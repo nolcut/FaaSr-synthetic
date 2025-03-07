@@ -34,13 +34,14 @@ def write_faasr_obj_to_json(workflow: SyntheticFaaSrWorkflow, output_name: str):
     faasr_data['DataStores'][workflow.data_store]['Writable'] = workflow.writable
 
     for function in workflow.function_list:
+        if function.compute_server.faastype != "Lambda":
+            faasr_data['ActionContainers'][function.name] = function.action_container
         faasr_data['FunctionList'][function.name] = {'FunctionName': function.function_name, 'FaaSServer' : workflow.compute_server.name, 'Arguments' : {}, 'InvokeNext': []}
         faasr_data['FunctionList'][function.name]['Arguments']['execution_time'] = function.execution_time
         faasr_data['FunctionList'][function.name]['Arguments']['folder'] = workflow.files_folder
         faasr_data['FunctionList'][function.name]['Arguments']['input_files'] = function.input_files
         faasr_data['FunctionList'][function.name]['Arguments']['output_size_in_bytes'] = sum(workflow.files[file] for file in function.output_files)
         faasr_data['FunctionList'][function.name]['InvokeNext'] = function.invoke_next
-        faasr_data['ActionContainers'][function.name] = function.action_container
 
     os.mkdir(output_name)
     outfile = open(f"{output_name}/{output_name}.json", "w")

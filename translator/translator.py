@@ -32,10 +32,10 @@ def translate_wf_to_faasr_gh(
         if len(t.parents) == 0 and len(t.children) > 1:
             if first_function is not None:
                 print("Multiple start tasks")
-            first_function = SyntheticFaaSrAction(execution_time=t.runtime, name=t.name, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
+            first_function = SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.name, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
             function_list.append(first_function)
             continue
-        function_list.append(SyntheticFaaSrAction(execution_time=t.runtime, name=t.id, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children))
+        function_list.append(SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.id, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children))
 
     return SyntheticFaaSrWorkflow(
                                   compute_server=compute_server, 

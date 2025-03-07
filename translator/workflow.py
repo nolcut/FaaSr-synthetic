@@ -61,33 +61,40 @@ class SyntheticFaaSrAction:
     Represents an action in the faasr workflow.
 
     Args:
+        compute_server(ComputeServer): the compute server that the function will run on
         execution_time(float): Execution time of the function in seconds
         name(str): Action name
+        action_continaer(str): Path to function's container
         input_files(list[str]): A list of input files for the function
         output_files(list[str]): A list of output files for the function
         invoke_next(list[str]): A list of functions to invoke next
         function_name(str): Name of FaaS function that the function calls
-        action_continaer(str): Path to function's container
     """
     def __init__(
         self, 
+        compute_server: ComputeServer,
         execution_time: float,
-        name: str, 
+        name: str,
         input_files=[], 
         output_files=[], 
         invoke_next=[], 
-        function_name="synthetic_faas_function", 
-        action_container="ghcr.io/faasr/github-actions-tidyverse"
+        function_name="synthetic_faas_function"
     ):
         if execution_time < 0:
             raise ValueError("Execution time cannot be negative")
+        self.compute_server = compute_server
         self.execution_time = execution_time
         self.name = name
         self.input_files = input_files
         self.output_files = output_files
         self.invoke_next = invoke_next
         self.function_name = function_name
-        self.action_container = action_container
+        match self.compute_server.faastype:
+            case("OpenWhisk"):
+                self.action_container = "faasr/openwhisk-tidyverse"
+            case("GitHubActions"):
+                self.action_container = "ghcr.io/faasr/github-actions-tidyverse"
+
     
 
 
