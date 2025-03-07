@@ -23,6 +23,7 @@ def write_faasr_obj_to_json(workflow: SyntheticFaaSrWorkflow, output_name: str):
         case "Lambda":
             faasr_data['ComputeServers'][workflow.compute_server.name]['Region'] = workflow.compute_server.region
         case "OpenWhisk":
+            faasr_data['ComputeServers'][workflow.compute_server.name]['SSL'] = workflow.compute_server.ssl
             faasr_data['ComputeServers'][workflow.compute_server.name]['Namespace'] = workflow.compute_server.namespace
             faasr_data['ComputeServers'][workflow.compute_server.name]['Endpoint'] = workflow.compute_server.endpoint
 

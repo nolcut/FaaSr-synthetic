@@ -18,11 +18,13 @@ class OW_ComputeServer(ComputeServer):
         name(str): name of compute server
         faastype(str): FaaS provider
         namespace(str): OpenWhisk username
+        ssl(str): Whether or not SSL is used for trigger
         endpoint(str): OpenWhisk endpoint
     """
-    def __init__(self, name: str, faastype:str, namespace: str, endpoint: str):
+    def __init__(self, name: str, faastype:str, namespace: str, ssl: str, endpoint: str):
         super().__init__(name=name, faastype=faastype)
         self.namespace = namespace
+        self.ssl = ssl
         self.endpoint = endpoint
 
 class Lambda_ComputeServer(ComputeServer):

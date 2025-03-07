@@ -2,6 +2,7 @@
     "ComputeServers": {
         "My_OW_Account": {
             "FaaSType": "OpenWhisk",
+            "SSL": "False",
             "Namespace": "YOUR_OW_USERNAME",
             "Endpoint": "YOUR_OW_ENDPOINT"
         }

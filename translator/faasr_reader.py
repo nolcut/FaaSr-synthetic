@@ -21,9 +21,13 @@ def faasr_json_to_workflow_obj(faasr_json: str, faasr_file_json: str):
             branch = faasr_json['ComputeServers'][compute_server_name]['Branch']
             compute_server = GH_ComputeServer(name=compute_server_name, faastype=faas_type, username=username, action_repo_name=action_repo_name, branch=branch)
         case "OpenWhisk":
+            if (faasr_json['ComputeServers'][compute_server_name].hasOwnProperty('SSL')):
+                ssl = faasr_json['ComputeServers'][compute_server_name]['SSL']
+            else:
+                ssl = "False"
             namespace = faasr_json['ComputeServers'][compute_server_name]['Namespace']
             endpoint = faasr_json['ComputeServers'][compute_server_name]['Endpoint']
-            compute_server = OW_ComputeServer(name=compute_server_name, faastype=faas_type, namespace=namespace, endpoint=endpoint)
+            compute_server = OW_ComputeServer(name=compute_server_name, faastype=faas_type, namespace=namespace, ssl=ssl, endpoint=endpoint)
         case "Lambda": 
             region = faasr_json['ComputeServers'][compute_server_name]['Region']
             compute_server = Lambda_ComputeServer(name=compute_server_name, faastype=faas_type, region=region)

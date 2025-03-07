@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 from wfformat_reader import *
 from workflow import *
@@ -69,13 +70,19 @@ def main():
                 compute_server = GH_ComputeServer(name="My_GitHub_Account", faastype="GitHubActions", username=username, action_repo_name=action_repo_name, branch=branch)
         case 'ow':
             if default_faas:
-                compute_server = OW_ComputeServer(name="My_OW_Account", faastype="OpenWhisk", namespace="YOUR_OW_USERNAME", endpoint="YOUR_OW_ENDPOINT")
+                compute_server = OW_ComputeServer(name="My_OW_Account", faastype="OpenWhisk", namespace="YOUR_OW_USERNAME", ssl="False", endpoint="YOUR_OW_ENDPOINT")
             else:
                 print("Please enter your OpenWhisk namespace:")
                 namespace = input()
+                print("Are you using SSL? (y/n)")
+                ssl_answer = prompt_y_or_n()
+                if ssl_answer:
+                    ssl = "True"
+                else:
+                    ssl = "False"    
                 print("Please open your OpenWhisk endpoint:")
                 endpoint = input()
-                compute_server = OW_ComputeServer(name="My_OW_Account", faastype="OpenWhisk", namespace=namespace, endpoint=endpoint)
+                compute_server = OW_ComputeServer(name="My_OW_Account", faastype="OpenWhisk", namespace=namespace, ssl=ssl, endpoint=endpoint)
         case "lambda":
             if default_faas:
                 compute_server = Lambda_ComputeServer(name="My_Lambda_Account", faastype="Lambda", region="us-east-1")

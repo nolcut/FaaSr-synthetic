@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 from wfformat_reader import *
 from workflow import *
