@@ -14,12 +14,15 @@ Password: zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG</code></pre>
 
 The files will be downloaded to a bucket called 'faasr'
 
+<img width="738" alt="image" src="https://github.com/user-attachments/assets/98b690aa-55b8-40b5-83b4-3206f086db83" />
+
 ## download_faasr_files.py
 Downloads the files specified in a FaaSr file JSON to S3
 
 <pre><code>python3 download_faasr_files.py [FaaSr file JSON]</code></pre>
 
 To view the download files, go to the same console as above and look for the faasr bucket
+
 
 # Dependencies
 * Minio
