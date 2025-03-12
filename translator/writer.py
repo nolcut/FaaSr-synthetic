@@ -34,8 +34,7 @@ def write_faasr_obj_to_json(workflow: SyntheticFaaSrWorkflow, output_name: str):
     faasr_data['DataStores'][workflow.data_store]['Writable'] = workflow.writable
 
     for function in workflow.function_list:
-        if function.compute_server.faastype != "Lambda":
-            faasr_data['ActionContainers'][function.name] = function.action_container
+        faasr_data['ActionContainers'][function.name] = function.action_container
         faasr_data['FunctionList'][function.name] = {'FunctionName': function.function_name, 'FaaSServer' : workflow.compute_server.name, 'Arguments' : {}, 'InvokeNext': []}
         faasr_data['FunctionList'][function.name]['Arguments']['execution_time'] = function.execution_time
         faasr_data['FunctionList'][function.name]['Arguments']['folder'] = workflow.files_folder

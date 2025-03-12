@@ -89,11 +89,7 @@ class SyntheticFaaSrAction:
         self.output_files = output_files
         self.invoke_next = invoke_next
         self.function_name = function_name
-        match self.compute_server.faastype:
-            case("OpenWhisk"):
-                self.action_container = "faasr/openwhisk-tidyverse"
-            case("GitHubActions"):
-                self.action_container = "ghcr.io/faasr/github-actions-tidyverse"
+        self.action_container = ""
 
     
 
