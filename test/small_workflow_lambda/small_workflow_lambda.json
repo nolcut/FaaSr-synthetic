@@ -24,7 +24,9 @@
                     "small.fasta",
                     "split_fasta"
                 ],
-                "output_size_in_bytes": 240
+                "input_size_in_bytes": 204,
+                "output_size_in_bytes": 240,
+                "actionid": "split_fasta_ID000001"
             },
             "InvokeNext": [
                 "blastall_ID000002",
@@ -80,7 +82,9 @@
                     "small.fasta.0",
                     "nt"
                 ],
-                "output_size_in_bytes": 10
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 10,
+                "actionid": "blastall_ID000002"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -98,7 +102,9 @@
                     "small.fasta.1",
                     "nt"
                 ],
-                "output_size_in_bytes": 12
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 12,
+                "actionid": "blastall_ID000003"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -116,7 +122,9 @@
                     "small.fasta.2",
                     "nt"
                 ],
-                "output_size_in_bytes": 10
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 10,
+                "actionid": "blastall_ID000004"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -134,7 +142,9 @@
                     "small.fasta.3",
                     "nt"
                 ],
-                "output_size_in_bytes": 20
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 20,
+                "actionid": "blastall_ID000005"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -152,7 +162,9 @@
                     "small.fasta.4",
                     "nt"
                 ],
-                "output_size_in_bytes": 100
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 100,
+                "actionid": "blastall_ID000006"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -170,7 +182,9 @@
                     "small.fasta.5",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000007"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -188,7 +202,9 @@
                     "small.fasta.6",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000008"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -206,7 +222,9 @@
                     "small.fasta.7",
                     "nt"
                 ],
-                "output_size_in_bytes": 25
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 25,
+                "actionid": "blastall_ID000009"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -224,7 +242,9 @@
                     "small.fasta.8",
                     "nt"
                 ],
-                "output_size_in_bytes": 40
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 40,
+                "actionid": "blastall_ID000010"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -242,7 +262,9 @@
                     "small.fasta.9",
                     "nt"
                 ],
-                "output_size_in_bytes": 9
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 9,
+                "actionid": "blastall_ID000011"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -260,7 +282,9 @@
                     "small.fasta.10",
                     "nt"
                 ],
-                "output_size_in_bytes": 12
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 12,
+                "actionid": "blastall_ID000012"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -278,7 +302,9 @@
                     "small.fasta.11",
                     "nt"
                 ],
-                "output_size_in_bytes": 14
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 14,
+                "actionid": "blastall_ID000013"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -296,7 +322,9 @@
                     "small.fasta.12",
                     "nt"
                 ],
-                "output_size_in_bytes": 98
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 98,
+                "actionid": "blastall_ID000014"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -314,7 +342,9 @@
                     "small.fasta.13",
                     "nt"
                 ],
-                "output_size_in_bytes": 16
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 16,
+                "actionid": "blastall_ID000015"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -332,7 +362,9 @@
                     "small.fasta.14",
                     "nt"
                 ],
-                "output_size_in_bytes": 7
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 7,
+                "actionid": "blastall_ID000016"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -350,7 +382,9 @@
                     "small.fasta.15",
                     "nt"
                 ],
-                "output_size_in_bytes": 8
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 8,
+                "actionid": "blastall_ID000017"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -368,7 +402,9 @@
                     "small.fasta.16",
                     "nt"
                 ],
-                "output_size_in_bytes": 22
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 22,
+                "actionid": "blastall_ID000018"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -386,7 +422,9 @@
                     "small.fasta.17",
                     "nt"
                 ],
-                "output_size_in_bytes": 16
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 16,
+                "actionid": "blastall_ID000019"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -404,7 +442,9 @@
                     "small.fasta.18",
                     "nt"
                 ],
-                "output_size_in_bytes": 26
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 26,
+                "actionid": "blastall_ID000020"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -422,7 +462,9 @@
                     "small.fasta.19",
                     "nt"
                 ],
-                "output_size_in_bytes": 13
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 13,
+                "actionid": "blastall_ID000021"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -440,7 +482,9 @@
                     "small.fasta.20",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000022"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -458,7 +502,9 @@
                     "small.fasta.21",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000023"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -476,7 +522,9 @@
                     "small.fasta.22",
                     "nt"
                 ],
-                "output_size_in_bytes": 12
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 12,
+                "actionid": "blastall_ID000024"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -494,7 +542,9 @@
                     "small.fasta.23",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000025"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -512,7 +562,9 @@
                     "small.fasta.24",
                     "nt"
                 ],
-                "output_size_in_bytes": 10
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 10,
+                "actionid": "blastall_ID000026"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -530,7 +582,9 @@
                     "small.fasta.25",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000027"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -548,7 +602,9 @@
                     "small.fasta.26",
                     "nt"
                 ],
-                "output_size_in_bytes": 10
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 10,
+                "actionid": "blastall_ID000028"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -566,7 +622,9 @@
                     "small.fasta.27",
                     "nt"
                 ],
-                "output_size_in_bytes": 19
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 19,
+                "actionid": "blastall_ID000029"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -584,7 +642,9 @@
                     "small.fasta.28",
                     "nt"
                 ],
-                "output_size_in_bytes": 7
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 7,
+                "actionid": "blastall_ID000030"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -602,7 +662,9 @@
                     "small.fasta.29",
                     "nt"
                 ],
-                "output_size_in_bytes": 15
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 15,
+                "actionid": "blastall_ID000031"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -620,7 +682,9 @@
                     "small.fasta.30",
                     "nt"
                 ],
-                "output_size_in_bytes": 25
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 25,
+                "actionid": "blastall_ID000032"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -638,7 +702,9 @@
                     "small.fasta.31",
                     "nt"
                 ],
-                "output_size_in_bytes": 13
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 13,
+                "actionid": "blastall_ID000033"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -656,7 +722,9 @@
                     "small.fasta.32",
                     "nt"
                 ],
-                "output_size_in_bytes": 11
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 11,
+                "actionid": "blastall_ID000034"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -674,7 +742,9 @@
                     "small.fasta.33",
                     "nt"
                 ],
-                "output_size_in_bytes": 13
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 13,
+                "actionid": "blastall_ID000035"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -692,7 +762,9 @@
                     "small.fasta.34",
                     "nt"
                 ],
-                "output_size_in_bytes": 17
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 17,
+                "actionid": "blastall_ID000036"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -710,7 +782,9 @@
                     "small.fasta.35",
                     "nt"
                 ],
-                "output_size_in_bytes": 24
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 24,
+                "actionid": "blastall_ID000037"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -728,7 +802,9 @@
                     "small.fasta.36",
                     "nt"
                 ],
-                "output_size_in_bytes": 14
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 14,
+                "actionid": "blastall_ID000038"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -746,7 +822,9 @@
                     "small.fasta.37",
                     "nt"
                 ],
-                "output_size_in_bytes": 23
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 23,
+                "actionid": "blastall_ID000039"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -764,7 +842,9 @@
                     "small.fasta.38",
                     "nt"
                 ],
-                "output_size_in_bytes": 10
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 10,
+                "actionid": "blastall_ID000040"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -782,7 +862,9 @@
                     "small.fasta.39",
                     "nt"
                 ],
-                "output_size_in_bytes": 24
+                "input_size_in_bytes": 7694,
+                "output_size_in_bytes": 24,
+                "actionid": "blastall_ID000041"
             },
             "InvokeNext": [
                 "cat_blast_ID000042",
@@ -838,7 +920,9 @@
                     "small.fasta.38.out",
                     "small.fasta.39.out"
                 ],
-                "output_size_in_bytes": 670
+                "input_size_in_bytes": 772,
+                "output_size_in_bytes": 670,
+                "actionid": "cat_blast_ID000042"
             },
             "InvokeNext": []
         },
@@ -890,7 +974,9 @@
                     "small.fasta.38.err",
                     "small.fasta.39.err"
                 ],
-                "output_size_in_bytes": 0
+                "input_size_in_bytes": 0,
+                "output_size_in_bytes": 0,
+                "actionid": "cat_ID000043"
             },
             "InvokeNext": []
         }
