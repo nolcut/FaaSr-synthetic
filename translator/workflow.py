@@ -75,6 +75,7 @@ class SyntheticFaaSrAction:
         compute_server: ComputeServer,
         execution_time: float,
         name: str,
+        action_container: str,
         input_files=[], 
         output_files=[], 
         invoke_next=[], 
@@ -89,7 +90,7 @@ class SyntheticFaaSrAction:
         self.output_files = output_files
         self.invoke_next = invoke_next
         self.function_name = function_name
-        self.action_container = ""
+        self.action_container = action_container
 
     
 

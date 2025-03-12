@@ -26,16 +26,23 @@ def translate_wf_to_faasr_gh(
         function_list(list[SyntheticFaaSrAction:]): A list of FaaSr actions in the workflow
         function_git_repos(list{str: str}): A list of key value pairs that specify the repos of the workflows R functions (R function: repo)
     """
+    match (compute_server.faastype):
+        case "GitHubActions":
+            action_container = "ghcr.io/faasr/github-actions-tidyverse:latest"
+        case "Lambda":
+            action_container = ".amazonaws.com/aws-lambda-tidyverse:latest"
+        case "OpenWhisk":
+            action_container = "faasr/openwhisk-tidyverse:latest"
     function_list = []
     first_function = None
     for t in workflow.tasks:
         if len(t.parents) == 0 and len(t.children) > 1:
             if first_function is not None:
                 print("Multiple start tasks")
-            first_function = SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.name, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
+            first_function = SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.name, action_container=action_container, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
             function_list.append(first_function)
             continue
-        function_list.append(SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.id, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children))
+        function_list.append(SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.id, action_container=action_container, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children))
 
     return SyntheticFaaSrWorkflow(
                                   compute_server=compute_server, 
