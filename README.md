@@ -37,9 +37,12 @@ note: In order to run any of these examples, you must download their files to S3
 
 # To-do
 - Make GUI to upload WfFormat files, take S3/FaaS credentials, and download FaaSr workflow's files to S3
-- [x] Support for AWS and OW
+- [x] Support for OW (tested)
+- Lambda testing
 - Create a tool for assigning compute servers to actions
 - Support for multiple compute servers and data stores
+- Method for setting compute service of task
+
 <img width="828" alt="Screenshot 2025-02-24 at 6 13 16 PM" src="https://github.com/user-attachments/assets/3a758176-2479-4456-a547-d73632c9dcf3" />
 
 # Future Additions
