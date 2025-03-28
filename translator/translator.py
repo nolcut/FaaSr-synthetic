@@ -1,3 +1,4 @@
+import random
 from workflow import *
 
 def translate_wf_to_faasr_gh(
@@ -22,7 +23,7 @@ def translate_wf_to_faasr_gh(
         region(str): Region for S3 data_store
         writable(str): Specifies if S3 bucket is writable
         files_folder(str): Name of folder in S3 containing workflow files
-        files(list[{str: int}]): A list of key value pair's specifying the names and sizes of the files in the workflow
+        files({str: int}): A dictionary specifying the names and sizes of the files in the workflow
         function_list(list[SyntheticFaaSrAction:]): A list of FaaSr actions in the workflow
         function_git_repos(list{str: str}): A list of key value pairs that specify the repos of the workflows R functions (R function: repo)
     """
@@ -34,15 +35,28 @@ def translate_wf_to_faasr_gh(
         case "OpenWhisk":
             action_container = "faasr/openwhisk-tidyverse:latest"
     function_list = []
-    first_function = None
+    entry_functions = []
     for t in workflow.tasks:
-        if len(t.parents) == 0 and len(t.children) > 1:
-            if first_function is not None:
-                print("Multiple start tasks")
-            first_function = SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.name, action_container=action_container, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
-            function_list.append(first_function)
-            continue
-        function_list.append(SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.id, action_container=action_container, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children))
+        function = SyntheticFaaSrAction(compute_server=compute_server, execution_time=t.runtime, name=t.id, action_container=action_container, input_files=t.input_files, output_files=t.output_files, invoke_next=t.children)
+        function_list.append(function)
+        if len(t.parents) == 0:
+            entry_functions.append(function)
+
+    # no entry node
+    if len(entry_functions) == 0:
+        print("No entry function")
+        quit()
+    # if there is multiple functions with no children, then
+    # we create a new node that invokes all of these entry nodes
+    elif len(entry_functions) > 1:
+        rand_num = random.getrandbits(32)
+        entry_function_names = [action.name for action in entry_functions]
+        entry = SyntheticFaaSrAction(compute_server=compute_server, execution_time=0, name=f"start{rand_num}", action_container=action_container, invoke_next=entry_function_names)
+        function_list.append(entry)
+    # only one entry node
+    else:
+        entry = entry_functions[0]
+        function_list.append(entry)
 
     return SyntheticFaaSrWorkflow(
                                   compute_server=compute_server, 
@@ -53,7 +67,7 @@ def translate_wf_to_faasr_gh(
                                   writable=writable, 
                                   files=workflow.files,
                                   function_list=function_list, 
-                                  start_function=first_function
+                                  start_function=entry
                                   )
 
 

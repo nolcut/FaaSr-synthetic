@@ -173,8 +173,9 @@ class SyntheticFaaSrWorkflow:
         region(str): Region for S3 data_store
         writable(str): Specifies if S3 bucket is writable
         files_folder(str): Name of folder in S3 containing workflow files
-        files(list[{str: int}]): A list of key value pair's specifying the names and sizes of the files in the workflow
+        files({str: int}): A dictionary specifying the names and sizes of the files in the workflow
         function_list(list[SyntheticFaaSAction:]): A list of FaaSr actions in the workflow
+        start_function(SyntheticFaaSrAction): The entry action for the workflow
         function_git_repos(list{str: str}): A list of key value pairs that specify the repos of the workflows R functions (R function: repo)
     """
     def __init__(

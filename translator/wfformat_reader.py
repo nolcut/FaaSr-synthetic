@@ -12,12 +12,23 @@ def wfformat_to_workflow_obj(data):
     files = {}
 
     for f in data['workflow']['specification']['files']:
-        files[f['id']] = f['sizeInBytes']
+        file_name = f['id'].rsplit("/", 1)[-1]
+        files[file_name] = f['sizeInBytes']
     
     for e in data['workflow']['execution']['tasks']:
         task_runtimes[e['id']] = e['runtimeInSeconds']
 
     for t in data['workflow']['specification']['tasks']:
-        tasks.append(Task(runtime=task_runtimes[t['id']], name=t['name'], id=t['id'], children=t['children'], parents=t['parents'], input_files=t['inputFiles'], output_files=t['outputFiles']))
+        name = t['name'].rsplit("/", 1)[-1]
+        input_files = [file.rsplit("/", 1)[-1] for file in t['inputFiles']]
+        output_files = [file.rsplit("/", 1)[-1] for file in t['outputFiles']]
+        tasks.append(
+                    Task(runtime=task_runtimes[t['id']], 
+                         name=name, id=t['id'], 
+                         children=t['children'],
+                         parents=t['parents'], 
+                         input_files=input_files, 
+                         output_files=output_files)
+                         )
 
     return WfFormatWorkflow(files, tasks)

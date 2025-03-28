@@ -9,9 +9,8 @@ def write_faasr_obj_to_json(workflow: SyntheticFaaSrWorkflow, output_name: str):
     :param_workflow: workflow object
     :param_output_name: output workflow name
     """
-    start_function_name = workflow.start_function.name
     data_bucket = workflow.data_store
-    faasr_data = {'ComputeServers' : {}, 'DataStores' : {}, 'FunctionList' : {}, 'ActionContainers' : {}, 'FunctionGitRepo' : workflow.function_git_repos, 'FunctionInvoke' : start_function_name, 'InvocationID' : '', 'FaaSrLog': 'FaaSrLog', 'LoggingDataStore': data_bucket, 'DefaultDataStore': data_bucket, 'FunctionCRANPackage': {"synthetic_faas_function": []}, 'FunctionGitHubPackage': {"synthetic_faas_function": []}}
+    faasr_data = {'ComputeServers' : {}, 'DataStores' : {}, 'FunctionList' : {}, 'ActionContainers' : {}, 'FunctionGitRepo' : workflow.function_git_repos, 'FunctionInvoke' : workflow.start_function.name, 'InvocationID' : '', 'FaaSrLog': 'FaaSrLog', 'LoggingDataStore': data_bucket, 'DefaultDataStore': data_bucket, 'FunctionCRANPackage': {"synthetic_faas_function": []}, 'FunctionGitHubPackage': {"synthetic_faas_function": []}}
 
     faasr_data['ComputeServers'][workflow.compute_server.name] = {}
     faasr_data['ComputeServers'][workflow.compute_server.name]['FaaSType'] = workflow.compute_server.faastype
